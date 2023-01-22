@@ -1,0 +1,118 @@
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<style>
+    body{
+       background-color: #2E2E2E;
+        color:white;
+        font-family: 'Lato', sans-serif;
+    }
+    #formularz{
+        color:white;
+        background-color:#414141;
+        padding: 10px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 20px;
+    }
+    p{
+        font-size:18px;
+    }
+    #nt, #kt,#cn,#v1t{
+        color:#3399CC;
+        font-size:20px;
+    }
+    sup{
+        color:red;
+    }
+</style>
+</head>
+<body>
+<script>
+function walidacja(formularz){
+var name=formularz.name.value;
+var regname=/^[a-ząęćłóśźż]{2,10}$/i;
+var cenk=formularz.cenk.value;
+var regcenk=/^[1-9a-z]{2}-[1-9a-z]{2}$/i;
+var cenan=formularz.cenan.value;
+var regcenan=/^[1-9]{1,10}$/;
+var vat=formularz.cenan.value;
+var regvat=/^[1-9]{1,2}$/;
+if(name=="")
+ document.getElementById('nt').innerHTML='Pole wymagane';
+else
+ if(!regname.test(name))
+ document.getElementById('nt').innerHTML='Wpisz poprawne Nazwe';
+ else document.getElementById('nt').innerHTML='';
+    if(cenk=="")
+ document.getElementById('kt').innerHTML='Pole wymagane';
+else
+ if(!regcenk.test(cenk))
+ document.getElementById('kt').innerHTML='Wpisz poprawne Kod towaru format: XX-XX';
+ else document.getElementById('kt').innerHTML='';
+if(cenan=="")
+ document.getElementById('cn').innerHTML='Pole wymagane';
+else
+ if(!regcenan.test(cenan))
+ document.getElementById('cn').innerHTML='Wpisz poprawne Cenne Netto Tylko liczby!';
+ else document.getElementById('cn').innerHTML='';
+ if(vat=="")
+ document.getElementById('cn').innerHTML='Pole wymagane';
+else
+ if(!regvat.test(vat))
+ document.getElementById('v1t').innerHTML='Wpisz poprawne Stawke VAT Tylko liczby!';
+ else document.getElementById('v1t').innerHTML='';
+}
+</script>
+<center><h1>Przygotowanie formularza na stronie WWW w celu dodawania produktów do bazy danych. </h1></center>
+<div id="formularz">
+<form method="post" id="contact_form">
+    <div><label for="name"><p>Nazwa towaru<sup>*</sup></p></label></div>
+     <div><input value="Nazwa"type="text" name="name"  class="formField" /><i id='nt'></i></div>
+     <div><label for="cenk"><p>kod towaru<sup>*</sup></p></label></div>
+     <div><input value="XX-XX"type="text" name="cenk"  class="formField" /><i id="kt"></i></div>
+     <div><label for="cenan"><p>Cena Netto<sup>*</sup></p></label></div>
+     <div><input value=" ,00"type="text" name="cenan" class="formField" /><i id="cn" ></i></div>
+     <div><label for="vat"><p>Stawka VAT<sup>*</sup></p></label></div>
+     <div><input value=" %"type="text" name="vat" class="formField" /><i id="v1t" ></i></div>
+     <div><label for="cena"><p>Cena Brutto</p></label></div>
+     <div><input type="text" name="cena"  class="formField" /><i id="cb"></i></div>
+     <div><p>Kategoria towarowa</p><select name="kategoria">
+     <option selected="selected">Alkohol</option>
+	 <option>Nabiał</option>
+	 <option>Pieczywo</option>
+	 <option>Mięso</option>
+	 <option>Produkty zwykłe</option>
+     </select></div>
+     <p>Opcje towaru</p>
+    <input type="checkbox" name="Muzyka" value="" />Plastik<br />
+    <input type="checkbox" name="Muzyka" value="" />Metal<br />
+    <input type="checkbox" name="Muzyka" value="" />Folia<br />
+    <input type="checkbox" name="Muzyka" value="" />Szkło<br />
+    <input type="checkbox" name="Muzyka" value="" />Krata<br />
+    <div><p>Ocena towaru</p><select name="ocena">
+     <option selected="selected">5</option>
+	 <option>4</option>
+	 <option>3</option>
+	 <option>2</option>
+	 <option>1</option>
+     </select></div>
+    <br>
+    <input type="button" value="Wyślij!" onClick='walidacja(this.form)' />
+</form>
+</div>
+
+    
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>
