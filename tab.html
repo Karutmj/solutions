@@ -1,0 +1,18 @@
+<script>
+function dzialania (a){
+wyniki=new Array();
+wyniki["pole pow."]=6*a*a;
+wyniki["objetośc"]=a*a*a;
+wyniki["Długość przekątnej"]=Math.sqrt(a*a+2*a*a);
+if(a>0) {wyniki["pole pow."]=6*a*a; wyniki["objetośc"]=a*a*a; wyniki["Długość przekątnej"]=Math.sqrt(a*a+2*a*a);}
+   else wyniki["pole pow."]= wyniki["objetośc"]= wyniki["Długość przekątnej"]="bok nie może się równać zero";
+ return wyniki;
+}
+var a=Number(prompt("Podaj a"));
+w=dzialania(a);
+for(i in w) {
+document.write(i+" : " +w[i]+ "<br>");
+}
+
+
+</script>
